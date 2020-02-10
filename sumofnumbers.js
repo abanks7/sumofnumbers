@@ -1,5 +1,3 @@
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 function sumFor(input) {
   let element = 0;
   for (let i = 0; i < input.length; i++) {
@@ -7,8 +5,6 @@ function sumFor(input) {
   }
   return element;
 }
-
-console.log(sumFor(nums));
 
 function sumWhile(input) {
   let element = 0;
@@ -20,8 +16,6 @@ function sumWhile(input) {
   return element;
 }
 
-console.log(sumWhile(nums));
-
 function sumRecursion(input) {
   if (input.length !== 0) {
     return input[0] + sumRecursion(input.slice(1));
@@ -29,10 +23,21 @@ function sumRecursion(input) {
   return 0;
 }
 
-console.log(sumRecursion(nums));
-
 function sumTheSimpleWay(input) {
-  return _.reduce(input, (memo, num) => memo + num);
+  if (input.length !== 0) {
+    return _.reduce(input, (memo, num) => memo + num);
+  }
+  return 0;
 }
 
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(sumFor(nums));
+console.log(sumWhile(nums));
+console.log(sumRecursion(nums));
 console.log(sumTheSimpleWay(nums));
+
+const empty = [];
+console.log(sumFor(empty));
+console.log(sumWhile(empty));
+console.log(sumRecursion(empty));
+console.log(sumTheSimpleWay(empty));
